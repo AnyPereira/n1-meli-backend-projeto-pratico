@@ -14,18 +14,19 @@ exports.getById = (req,res) =>{
     res.send(tarefasId)
 }
 
-exports.getColaborador = (req, res) => {
-    
+exports.getColaborador = (req, res) => {    
     const nomeConcluiu = tarefas.filter(tarefa => tarefa.concluido == "true")    
     res.status(200).send(nomeConcluiu)
 }
 
-exports.getNome = (req,res) => {
+exports.getNomeId = (req, res) => {
     const id = req.params.id
-    const colaboradorUnico = tarefas.find(tarefa => tarefa.id == id) 
-    const fez = tarefas.map( tarefa => tarefa.nomeColaborador)
-    res.status(200).send(fez)   
-}
+    const nomeId = tarefas.find(item => item.id == id)
+    const nomeFunc = nomeId.nomeColaborador 
+    res.status(200).send(nomeFunc)   
+}    
+     
+
 
 
 
